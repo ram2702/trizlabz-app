@@ -1,0 +1,254 @@
+.content-cont {
+    display: flex;
+    flex-direction: column;
+    width: 1627px;
+    height: 100vh;
+    background: #16151A;
+    height: 1115px;
+}
+
+.sub-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-txt>h1 {
+    width: 210px;
+    height: 73px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 73px;
+    margin-left: 49px;
+    margin-top: 97px;
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.main-txt>h3 {
+    width: 168px;
+    height: 25px;
+    margin-left: 50px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+}
+
+.icon-holder {
+    width: 130px;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.notificon {
+    margin-top: 117.88px;
+    cursor: pointer;
+    margin-right: 15%;
+}
+
+.drop {
+
+    margin-top: 79px;
+    background-color: transparent;
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid;
+    padding-left: 6px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin-right: 30px;
+}
+
+.drop-one {
+    margin-left: 49px;
+}
+
+.drop option {
+    color: black;
+}
+
+.drop-two {
+    width: 160px;
+}
+
+.drop-three {
+    width: 145px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    margin-left: 49px;
+    margin-top: 57px;
+}
+
+.card-items {
+    padding: 12.4187px 18.628px;
+    width: 140px;
+    height: 150px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: #16151A;
+    border: 1px solid #FFBF1A;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.card-items:active {
+    transition: all 0.2s ease;
+    scale: 0.98;
+}
+
+.card-title {
+    width: 100%;
+    height: 38px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 38px;
+    text-align: center;
+    color: #FFBF1A;
+}
+
+
+
+.card-label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 25.36px;
+}
+
+.label-icon-two {
+    margin-top: -15%;
+    margin-bottom: 2%;
+}
+
+.label-icon-three {
+    margin-top: -8%;
+    margin-bottom: 2%;
+}
+
+.label-icon-five {
+    margin-top: -3%;
+    margin-bottom: 2%;
+}
+
+.label-icon-six {
+    margin-top: -8%;
+    margin-bottom: 2%;
+}
+
+.label-text {
+    width: 60px;
+    margin-top: -22px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60.2402px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.card-desc {
+    width: 100%;
+    align-self: flex-start;
+    width: 143px;
+    height: 18px;
+    text-align: center;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.2395px;
+    line-height: 18px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hr {
+    margin-top: 48.5px;
+    margin-bottom: 48.5px;
+    margin-left: -20px;
+    align-self: center;
+    width: 92%;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.labels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 40px;
+    margin-left: 49px;
+}
+
+.label-one {
+    display: flex;
+    padding: 6px 8px;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 273.66px;
+    height: 43.8px;
+    background: #1F1E25;
+    border-radius: 11.3042px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.label-one:active {
+    transition: all 0.2s ease;
+    scale: 0.95;
+}
+
+.label-one>h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16.6084px;
+    color: #FFFFFF;
+    margin-left: 5%;
+    width: 150px;
+}
+
+.label-one>span {
+    width: 11.54px;
+    height: 43.8px;
+    position: relative;
+    left: 60px;
+    background: #09AF54;
+    border-radius: 4.52168px;
+}
+
+.label-four img {
+    margin-left: 10.55px;
+    margin-right: 7.59px;
+
+}

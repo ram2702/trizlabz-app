@@ -1,0 +1,146 @@
+.pop-cont {
+    float: left;
+    position: absolute;
+    width: 100%;
+    height: 1115px;
+    max-height: 1115px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-box {
+    width: 724px;
+    height: 917px;
+    left: 502px;
+    top: 180px;
+    background: #1F1E25;
+    border-radius: 13.8254px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-head {
+    display: flex;
+    margin-top: 35.12px;
+    margin-left: 26.75px;
+}
+
+.pop-head>img {
+    margin-top: 5px;
+}
+
+.pop-head>h4 {
+    width: 174px;
+    height: 40px;
+    margin-left: 10.03px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 29.1855px;
+    line-height: 40px;
+
+    color: #FFFFFF;
+}
+
+.pop-head>button {
+    width: 54px;
+    height: 54px;
+    background: url(../img/closeButton.png);
+    margin-top: -7px;
+    margin-left: 393.44px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.pop-head>button:hover {
+    transition: all 0.2s ease;
+    scale: 1.05;
+}
+
+.pop-head>button:active {
+    transition: all 0.2s ease;
+    scale: 0.95;
+
+}
+
+.pop-card {
+    width: 670px;
+    height: 106px;
+    margin-top: 55.88px;
+    margin-left: 26.75px;
+    background: #262630;
+    border-radius: 9.21697px;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.pop-card>h5 {
+
+    width: 71px;
+    height: 27px;
+
+    margin-top: -12px;
+    margin-left: 7px;
+    margin-bottom: 25px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22.1207px;
+    line-height: 27px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+
+}
+
+.card-stats {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 25px;
+}
+
+.stat-one {
+    display: flex;
+    min-width: 90px;
+}
+
+.stat-txt {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.stat-txt>h6 {
+    width: 90px;
+    height: 23px;
+    margin-left: 5.6px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18.4339px;
+    line-height: 23px;
+
+    color: #FFFFFF;
+}
+
+.stat-txt>p {
+    width: 90px;
+    height: 19px;
+    margin-left: 5.6px;
+    margin-top: -4px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.7471px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}

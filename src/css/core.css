@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+
+.page-cont {
+
+    height: fit-content;
+    max-height: 1115px;
+    display: flex;
+
+}
+
+.nav-container {
+    box-sizing: border-box;
+    width: 293px;
+    height: 1112px;
+    background-color: red;
+    border: 2px solid #1F1F23;
+}
