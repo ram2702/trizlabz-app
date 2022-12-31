@@ -11,11 +11,3 @@
     display: flex;
 
 }
-
-.nav-container {
-    box-sizing: border-box;
-    width: 293px;
-    height: 1112px;
-    background-color: red;
-    border: 2px solid #1F1F23;
-}
