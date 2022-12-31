@@ -1,7 +1,7 @@
 .nav-cont {
     box-sizing: border-box;
     width: 253px;
-    height: 1117px;
+    height: fit-content;
     background-color: #16151A;
     border: 2px solid #1F1F23;
     display: flex;

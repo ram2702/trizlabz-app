@@ -2,9 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 1266px;
-    height: 100vh;
     background: #16151A;
-    height: 1117px;
+    height: fit-content;
 }
 
 .sub-head {
