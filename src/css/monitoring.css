@@ -1,7 +1,7 @@
 .content-cont {
     display: flex;
     flex-direction: column;
-    width: 1627px;
+    width: 1266px;
     height: 100vh;
     background: #16151A;
     height: 1115px;
@@ -102,16 +102,14 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-
-    margin-left: 49px;
+    margin-left: 40px;
     margin-top: 57px;
 }
 
 .card-items {
-    padding: 12.4187px 18.628px;
-    width: 140px;
-    height: 150px;
-    margin-right: 40px;
+    width: 180px;
+    height: 160px;
+    margin-right: 30px;
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -134,8 +132,10 @@
     font-weight: 600;
     font-size: 27px;
     line-height: 38px;
-    text-align: center;
+    justify-self: center;
     color: #FFBF1A;
+    text-align: center;
+    margin-top: 5px;
 }
 
 
@@ -143,8 +143,18 @@
 .card-label {
     display: flex;
     width: 100%;
-    justify-content: space-between;
     margin-top: 25.36px;
+    margin-bottom: 10px;
+}
+
+.card-label>img {
+    margin-left: 10px;
+    width: 50%;
+}
+
+.card-label>h4 {
+    width: 50%;
+    text-align: center;
 }
 
 .label-icon-two {
@@ -168,6 +178,7 @@
 }
 
 .label-text {
+
     width: 60px;
     margin-top: -22px;
     font-family: 'Source Sans Pro';
@@ -180,8 +191,6 @@
 
 .card-desc {
     width: 100%;
-    align-self: flex-start;
-    width: 143px;
     height: 18px;
     text-align: center;
     font-family: 'Source Sans Pro';
@@ -196,9 +205,9 @@
 .hr {
     margin-top: 48.5px;
     margin-bottom: 48.5px;
-    margin-left: -20px;
+    margin-left: 15px;
     align-self: center;
-    width: 92%;
+    width: 94.5%;
     border: 0.5px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -206,7 +215,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-row-gap: 40px;
-    margin-left: 49px;
+    margin-left: 40px;
 }
 
 .label-one {
@@ -215,7 +224,7 @@
     margin-right: 20px;
     align-items: center;
     justify-content: flex-start;
-    width: 273.66px;
+    width: 243.66px;
     height: 43.8px;
     background: #1F1E25;
     border-radius: 11.3042px;
@@ -242,7 +251,7 @@
     width: 11.54px;
     height: 43.8px;
     position: relative;
-    left: 60px;
+    left: 35px;
     background: #09AF54;
     border-radius: 4.52168px;
 }

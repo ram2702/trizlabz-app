@@ -1,6 +1,6 @@
 .nav-cont {
     box-sizing: border-box;
-    width: 293px;
+    width: 253px;
     height: 1115px;
     background-color: #16151A;
     border: 2px solid #1F1F23;
@@ -11,10 +11,10 @@
 .trizlabz-logo {
     width: 205.75px;
     height: 58px;
-    margin-left: 34px;
+    margin-left: 14px;
     margin-top: 110px;
     margin-bottom: 72.75px;
-    margin-right: 53.25px;
+    margin-right: 33.25px;
 }
 
 .nav-card {
@@ -61,7 +61,7 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 23px;
+    font-size: 20px;
     line-height: 30px;
 
     color: rgba(255, 255, 255, 0.5);
@@ -79,7 +79,7 @@
     font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 25px;
     color: rgba(255, 255, 255, 0.5);
 
@@ -87,7 +87,7 @@
 
 .sub-content>li {
     margin-bottom: 11px;
-    width: 150px;
+    width: 120px;
     transition: all 0.02s ease;
     padding-left: 10%;
     padding-top: 3%;
