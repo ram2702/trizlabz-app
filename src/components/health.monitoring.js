@@ -1,33 +1,85 @@
 import React from "react";
-import "../css/monitoring.css";
-import notificon from "../img/notificon.png";
-import profileicon from "../img/profileicon.png";
-import vehicleIcon from "../img/vehicleIcon.svg";
-import deploymentIcon from "../img/deploymentIcon.png";
-import userIcon from "../img/userIcon.svg";
-import fleetIcon from "../img/fleetIcon.svg";
-import groupIcon from "../img/groupIcon.png";
-import customerIcon from "../img/customerIcon.png";
-import computerIcon from "../img/computerIcon.png";
-import InternalIOlogo from "../img/InternalIOlogo.png";
-import motorsIcon from "../img/motorsIcon.png";
-import powerIcon from "../img/powerIcon.png";
-import safetyIcon from "../img/safetyIcon.png";
-import sensorIcon from "../img/sensorIcon.png";
-import boltIcon from "../img/boltIcon.png";
-import wheelIcon from "../img/wheelIcon.png";
-import usbIcon from "../img/usbIcon.png";
-import OthersIcon from "../img/OthersIcon.png";
-import CompPop from "../popups/comp.health";
+import {
+  notificon,
+  profileicon,
+  vehicleIcon,
+  deploymentIcon,
+  userIcon,
+  fleetIcon,
+  groupIcon,
+  customerIcon,
+  computerIcon,
+  InternalIOlogo,
+  motorsIcon,
+  powerIcon,
+  safetyIcon,
+  sensorIcon,
+  boltIcon,
+  wheelIcon,
+  usbIcon,
+  OthersIcon,
+} from "../img/monitoringImg";
 import { useNavigate } from "react-router-dom";
+import Keycloak from "../auth/keycloak.js";
+import keycloakConfig from "../auth/keycloak.json";
 
-export default function Health() {
-  const [status, setStatus] = React.useState("red");
-  console.log(document.all);
+const baseKaaPlatformUrl = "https://cloud.kaaiot.com";
+const endpointID = "851b64bd-9298-49be-9169-096c7d1e60a4";
+const applicationID = "cc3kq5idblahfr7uq3q0";
+
+export default function Health(props) {
+  const keycloak = new Keycloak(keycloakConfig);
+  const token = props.props;
+  const [error, setError] = React.useState(null);
+  const [key, setKey] = React.useState();
+  const [status, setStatus] = React.useState(1);
+  const [posts, setPosts] = React.useState();
   const navigate = useNavigate();
-  function handleClick() {
-    navigate("/computerPopUp");
+
+  function handleClick(event) {
+    if (event.target.id == "Computer") navigate("/computerPopUp");
+    else if (event.target.id == "Motor") navigate("/motorPopUp");
+    else if (event.target.id == "Power") navigate("/powerPopUp");
   }
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setStatus(Math.random());
+    }, 2000);
+  }, [status]);
+  React.useEffect(() => {
+    if (token) fetchData();
+  }, [status]);
+
+  const fetchData = async () => {
+    if (token) {
+      try {
+        const url = `${baseKaaPlatformUrl}/epts/api/v1/applications/${applicationID}/time-series/last?endpointId=${endpointID}&timeSeriesName=computer_parameters, motor_parameters, power_parameters`;
+        const response = await fetch(url, {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        console.log(data);
+        for (let key1 in data) {
+          setKey(key1);
+        }
+        setPosts(data);
+      } catch (err) {
+        setError(err);
+        console.log(error);
+      }
+    } else {
+      setError("Not authenticated");
+      console.log("error");
+    }
+  };
+  if (posts !== undefined) {
+    console.log(posts[key]);
+  }
+
   return (
     <div className="content-cont">
       <article className="sub-head">
@@ -152,9 +204,15 @@ export default function Health() {
       </article>
       <hr className="hr" />
       <article className="labels">
-        <div className="label-one" onClick={handleClick}>
-          <img src={computerIcon} alt="Label Icon" height={30} width={38} />
-          <h4>Computer</h4>
+        <div className="label-one" id="Computer" onClick={handleClick}>
+          <img
+            src={computerIcon}
+            alt="Label Icon"
+            id="Computer"
+            height={30}
+            width={38}
+          />
+          <h4 id="Computer">Computer</h4>
           <span></span>
         </div>
         <div className="label-one">
@@ -162,15 +220,27 @@ export default function Health() {
           <h4>Internal IOs</h4>
           <span></span>
         </div>
-        <div className="label-one">
-          <img src={motorsIcon} alt="Label Icon" height={30} width={38} />
-          <h4>Motors</h4>
-          <span></span>
+        <div className="label-one" id="Motor" onClick={handleClick}>
+          <img
+            src={motorsIcon}
+            alt="Label Icon"
+            id="Motor"
+            height={30}
+            width={38}
+          />
+          <h4 id="Motor">Motors</h4>
+          <span id="Motor"></span>
         </div>
-        <div className="label-one label-four">
-          <img src={powerIcon} alt="Label Icon" height={31.65} width={21.1} />
-          <h4>Power System</h4>
-          <span></span>
+        <div className="label-one label-four" id="Power" onClick={handleClick}>
+          <img
+            id="Power"
+            src={powerIcon}
+            alt="Label Icon"
+            height={31.65}
+            width={21.1}
+          />
+          <h4 id="Power">Power System</h4>
+          <span id="Power"></span>
         </div>
         <div className="label-one">
           <img src={safetyIcon} alt="Label Icon" height={40} width={40} />

@@ -1,4 +1,4 @@
-.comp-pop-cont {
+.pop-cont {
     float: left;
     position: absolute;
     width: 1519px;
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.comp-pop-box {
+.pop-box {
     width: 724px;
     height: 811px;
     left: 502px;
@@ -23,17 +23,17 @@
     flex-direction: column;
 }
 
-.comp-pop-head {
+.pop-head {
     display: flex;
     margin-top: 35.12px;
     margin-left: 26.75px;
 }
 
-.comp-pop-head>img {
+.pop-head>img {
     margin-top: 5px;
 }
 
-.comp-pop-head>h4 {
+.pop-head>h4 {
     width: 174px;
     height: 40px;
     margin-left: 10.03px;
@@ -46,7 +46,7 @@
     color: #FFFFFF;
 }
 
-.comp-pop-head>button {
+.pop-head>button {
     width: 54px;
     height: 54px;
     background: url(../img/closeButton.png);
@@ -56,66 +56,48 @@
     transition: all 0.2s ease;
 }
 
-.comp-pop-head>button:hover {
+.pop-head>button:hover {
     transition: all 0.2s ease;
     scale: 1.05;
 }
 
-.comp-pop-head>button:active {
+.pop-head>button:active {
     transition: all 0.2s ease;
     scale: 0.95;
 
 }
 
-.comp-pop-card {
+.pop-card {
     width: 670px;
-    height: 106px;
+    height: 115px;
     margin-top: 55.88px;
     margin-left: 26.75px;
     background: #262630;
     border-radius: 9.21697px;
     display: flex;
-    flex-direction: column;
-
-
+    justify-content: start;
+    align-items: center;
 }
 
-.comp-pop-card>h5 {
-    justify-self: start;
-
-    height: 27px;
-    margin-top: -12px;
-    margin-left: 27px;
-    margin-bottom: 25px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22.1207px;
-    /* identical to box height */
-    color: rgba(255, 255, 255, 0.5);
-
-
-}
-
-.comp-card-stats {
+.card-stats {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
-
+    justify-self: center;
 }
 
-.comp-stat-one {
+.stat-one {
     display: flex;
-    min-width: 90px;
-
+    min-width: 140px;
 }
 
-.comp-stat-txt {
+.stat-txt {
     display: flex;
     flex-direction: column;
 
 }
 
-.comp-stat-txt>h6 {
+.stat-txt>h6 {
     width: 90px;
     height: 23px;
     margin-left: 5.6px;
@@ -128,8 +110,8 @@
     color: #FFFFFF;
 }
 
-.comp-stat-txt>p {
-    width: 90px;
+.stat-txt>p {
+    width: 140px;
     height: 19px;
     margin-left: 5.6px;
     margin-top: -4px;

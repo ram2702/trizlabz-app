@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/core.css";
 import "../css/navStyle.css";
 import logo from "../img/Trizlabz_logo__1_-removebg-preview 1.png";
 import dashlogo from "../img/dashpic.png";

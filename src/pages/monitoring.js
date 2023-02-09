@@ -2,12 +2,34 @@ import React from "react";
 import Navbar from "../components/navbar";
 import Health from "../components/health.monitoring";
 import CompPop from "../popups/comp.health";
-export default function Monitoring({ props }) {
+import Keycloak from "../auth/keycloak";
+import keycloakConfig from "../auth/keycloak.json";
+import "../css/monitoring.css";
+import "../css/core.css";
+export default function Monitoring() {
+  const keycloak = new Keycloak(keycloakConfig);
+  const [token, setToken] = React.useState();
+  const [error, setError] = React.useState(null);
+  React.useEffect(() => {
+    keycloak
+      .init({ onLoad: "login-required", promiseType: "native" })
+      .then((authenticated) => {
+        if (authenticated) {
+          console.log("user is authenticated");
+          setToken(keycloak.token);
+        } else {
+        }
+      })
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      });
+  }, []);
   return (
     <>
       <div className="page-cont">
         <Navbar />
-        <Health />
+        <Health props={token} />
       </div>
     </>
   );
