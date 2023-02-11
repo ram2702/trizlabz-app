@@ -1,3 +1,4 @@
+"use strict";
 /*
  * Copyright 2016 Red Hat, Inc. and/or its affiliates
  * and other contributors as indicated by the @author tags.
@@ -32,7 +33,6 @@
      * @license MIT
      */
     !(function () {
-      "use strict";
       function t(t, i) {
         i
           ? ((d[0] =
