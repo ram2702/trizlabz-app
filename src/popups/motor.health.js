@@ -9,7 +9,7 @@ import mpupop2 from "../img/mpopup2.svg";
 import mpupop3 from "../img/mpopup3.svg";
 import mpupop4 from "../img/mpopup4.svg";
 import mpupop5 from "../img/mpopup5.svg";
-import Keycloak from "../auth/keycloak.js";
+import Keycloak from "keycloak-js";
 import keycloakConfig from "../auth/keycloak.json";
 
 const baseKaaPlatformUrl = "https://cloud.kaaiot.com";

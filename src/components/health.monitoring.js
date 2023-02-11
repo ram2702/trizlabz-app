@@ -20,7 +20,7 @@ import {
   OthersIcon,
 } from "../img/monitoringImg";
 import { useNavigate } from "react-router-dom";
-import Keycloak from "../auth/keycloak.js";
+import Keycloak from "keycloak-js";
 import keycloakConfig from "../auth/keycloak.json";
 
 const baseKaaPlatformUrl = "https://cloud.kaaiot.com";

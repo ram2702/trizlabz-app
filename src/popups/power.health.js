@@ -10,9 +10,8 @@ import ppupop3 from "../img/ppopup3.svg";
 import ppupop4 from "../img/ppopup4.svg";
 import ppupop5 from "../img/ppopup5.svg";
 import ppupop6 from "../img/ppopup6.svg";
-import Keycloak from "../auth/keycloak.js";
+import Keycloak from "keycloak-js";
 import keycloakConfig from "../auth/keycloak.json";
-
 const baseKaaPlatformUrl = "https://cloud.kaaiot.com";
 const endpointID = "851b64bd-9298-49be-9169-096c7d1e60a4";
 const applicationID = "cc3kq5idblahfr7uq3q0";

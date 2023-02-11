@@ -8,7 +8,7 @@ import cpupop1 from "../img/cpupop1.svg";
 import cpupop2 from "../img/cpupop2.svg";
 import cpupop3 from "../img/cpupop3.svg";
 import cpupop4 from "../img/cpupop4.svg";
-import Keycloak from "../auth/keycloak.js";
+import Keycloak from "keycloak-js";
 import keycloakConfig from "../auth/keycloak.json";
 
 const baseKaaPlatformUrl = "https://cloud.kaaiot.com";

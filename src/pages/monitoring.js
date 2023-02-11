@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar";
 import Health from "../components/health.monitoring";
 import CompPop from "../popups/comp.health";
-import Keycloak from "../auth/keycloak";
+import Keycloak from "keycloak-js";
 import keycloakConfig from "../auth/keycloak.json";
 import "../css/monitoring.css";
 import "../css/core.css";
