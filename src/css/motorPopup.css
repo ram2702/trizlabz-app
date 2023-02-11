@@ -75,7 +75,7 @@
     background: #262630;
     border-radius: 9.21697px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 

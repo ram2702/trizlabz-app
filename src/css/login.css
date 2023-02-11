@@ -3,8 +3,8 @@
     width: 100%;
     height: 100vh;
     background: linear-gradient(to right,
-            black 0%,
-            black 50%,
+            #1F1F1E 0%,
+            #1F1F1E 50%,
             #FD841F 50%,
             #FD841F 100%);
     justify-content: center;
@@ -20,30 +20,40 @@
 
 .box-1 {
     width: 50%;
-    background: url(../img/login-bg.png);
+    /* background: url(../img/login-bg.png); */
     opacity: 1;
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 30px 0px 0px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 
 }
 
-.box-1>h1 {
+.head-cont {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4%;
+    height: 30vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.40) 50%, transparent);
+    border-radius: 30px 0px 0px 0px;
+}
 
+.head-cont>h1 {
+    margin-left: 4%;
     max-width: 80%;
     font-family: 'Montserrat';
     font-style: normal;
     color: white;
     font-weight: 700;
     font-size: 35px;
-    margin-left: 5%;
-    margin-bottom: 4%;
 }
 
 .box-1>p {
+    display: none;
     max-width: 90%;
     font-family: 'Source Sans Pro';
     font-style: normal;
@@ -62,7 +72,7 @@
     margin-left: -1px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 
 }
@@ -81,23 +91,29 @@
 }
 
 .login-form>input {
-    width: 100%;
-    height: 6vh;
+    width: 90%;
+    height: 5vh;
     margin-bottom: 2vh;
     background-color: transparent;
-    border: 2px solid #FFFFFF;
-    border-radius: 10px;
-    font-size: 17px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 7px;
+    font-size: 15px;
     font-family: 'Source Sans Pro';
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     padding-left: 3%;
+}
+
+.login-form>input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+
 }
 
 .login-form>button {
     background-color: #FD841F;
-    border-radius: 29px;
+    border-radius: 10px;
     width: 90%;
-    padding: 5%;
+    height: 5vh;
+
     border: none;
     font-family: 'Source Sans Pro';
     font-style: normal;
@@ -121,6 +137,7 @@
     font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 7vh;
+    margin-right: 5%;
     transition: all 0.2s ease;
 }
 

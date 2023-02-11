@@ -27,7 +27,7 @@
     display: flex;
     margin-top: 35.12px;
     margin-left: 26.75px;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .pop-head>img {
@@ -75,7 +75,7 @@
     background: #262630;
     border-radius: 9.21697px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -129,7 +129,7 @@
 }
 
 .last-stat {
-    justify-content: start;
+    justify-content: flex-start;
     margin-left: 4%;
 }
 
