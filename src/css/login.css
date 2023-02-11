@@ -20,7 +20,7 @@
 
 .box-1 {
     width: 50%;
-    /* background: url(../img/login-bg.png); */
+    background: url(../img/login-bg.png);
     opacity: 1;
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,8 +1,6 @@
 import React from "react";
 import "../css/login.css";
 import logo from "../img/Trizlabz_logo__1_-removebg-preview 1.png";
-import login1 from "../img/login-bg.png";
-import BackgroundSlider from "react-background-slider";
 export default function Login() {
   return (
     <div className="log-cont">

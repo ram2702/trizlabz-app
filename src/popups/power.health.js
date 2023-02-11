@@ -64,7 +64,7 @@ export default function PowerPop({ props }) {
 
   React.useEffect(() => {
     keycloak
-      .init({ onLoad: "check-sso", promiseType: "native" })
+      .init({ onLoad: "login-required", promiseType: "native" })
       .then((authenticated) => {
         if (authenticated) {
           console.log("user is authenticated");
