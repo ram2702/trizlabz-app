@@ -1,7 +1,7 @@
 .content-cont {
     display: flex;
     flex-direction: column;
-    width: 85vw;
+    width: 75%;
     background: #16151A;
     height: fit-content;
 }

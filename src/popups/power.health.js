@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Health from "../components/health.monitoring";
-import Navbar from "../components/navbar";
+
 import "../css/powerPopup.css";
 import powerIcon from "../img/powerIcon.png";
 import ppupop1 from "../img/ppopup1.svg";
@@ -10,49 +9,44 @@ import ppupop3 from "../img/ppopup3.svg";
 import ppupop4 from "../img/ppopup4.svg";
 import ppupop5 from "../img/ppopup5.svg";
 import ppupop6 from "../img/ppopup6.svg";
-import Keycloak from "keycloak-js";
-import keycloakConfig from "../auth/keycloak.json";
+
 const baseKaaPlatformUrl = "https://cloud.kaaiot.com";
 const endpointID = "851b64bd-9298-49be-9169-096c7d1e60a4";
 const applicationID = "cc3kq5idblahfr7uq3q0";
 
-export default function PowerPop({ props }) {
+export default function PowerPop(props) {
   const [error, setError] = React.useState(null);
   const [posts, setPosts] = React.useState();
-  const [token, setToken] = React.useState();
+  const token = props.props;
   const [tags, setTags] = React.useState([false, false, false]);
-  const keycloak = new Keycloak(keycloakConfig);
-  const [visible, setVisible] = React.useState(props);
+  const [visible, setVisible] = React.useState(true);
   const [key, setKey] = React.useState();
   const navigate = useNavigate();
   let powerPar;
 
   function handleChange(event) {
-    if (event.target.className == "rail" && tags) {
-      setTags([true, false, false]);
-    } else if (event.target.className == "subsys" && tags) {
-      setTags([false, true, false]);
+    if (
+      (event.target.className === "rail" ||
+        event.target.className === "border rail") &&
+      tags
+    ) {
+      setTags((prev) => [!prev[0], false, false]);
+    } else if (
+      (event.target.className === "subsys" ||
+        event.target.className === "border subsys") &&
+      tags
+    ) {
+      setTags([false, !tags[1], false]);
     }
-    if (event.target.className == "bms" && tags) {
-      setTags([false, false, true]);
+    if (
+      (event.target.className === "bms" ||
+        event.target.className === "border bms") &&
+      tags
+    ) {
+      setTags([false, false, !tags[2]]);
     }
   }
   console.log(tags);
-
-  React.useEffect(() => {
-    keycloak
-      .init({ onLoad: "login-required", promiseType: "native" })
-      .then((authenticated) => {
-        if (authenticated) {
-          console.log("user is authenticated");
-          setToken(keycloak.token);
-        } else {
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
 
   React.useEffect(() => {
     if (token) fetchData();
@@ -85,12 +79,12 @@ export default function PowerPop({ props }) {
 
   if (key) {
     powerPar = posts[key].power_parameters[0].values;
-    console.log(powerPar);
+    // console.log(powerPar);
   }
 
   function handleClick() {
+    props.showPop("Power", false);
     navigate("/");
-    setVisible(false);
   }
   return (
     <>
@@ -311,10 +305,6 @@ export default function PowerPop({ props }) {
           </article>
         </div>
       )}
-      <div className="page-cont">
-        <Navbar />
-        <Health />
-      </div>
     </>
   );
 }

@@ -16,30 +16,15 @@ const baseKaaPlatformUrl = "https://cloud.kaaiot.com";
 const endpointID = "851b64bd-9298-49be-9169-096c7d1e60a4";
 const applicationID = "cc3kq5idblahfr7uq3q0";
 
-export default function MotorPop({ props }) {
+export default function MotorPop(props) {
   const [error, setError] = React.useState(null);
   const [posts, setPosts] = React.useState();
-  const [token, setToken] = React.useState();
+  const token = props.props;
   const keycloak = new Keycloak(keycloakConfig);
-  const [visible, setVisible] = React.useState(props);
+  const [visible, setVisible] = React.useState(true);
   const [key, setKey] = React.useState();
   const navigate = useNavigate();
   let motorPar;
-
-  React.useEffect(() => {
-    keycloak
-      .init({ onLoad: "login-required", promiseType: "native" })
-      .then((authenticated) => {
-        if (authenticated) {
-          console.log("user is authenticated");
-          setToken(keycloak.token);
-        } else {
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
 
   React.useEffect(() => {
     if (token) fetchData();
@@ -76,8 +61,8 @@ export default function MotorPop({ props }) {
   }
 
   function handleClick() {
+    props.showPop("Motor", false);
     navigate("/");
-    setVisible(false);
   }
   return (
     <>
@@ -240,10 +225,6 @@ export default function MotorPop({ props }) {
           </article>
         </div>
       )}
-      <div className="page-cont">
-        <Navbar />
-        <Health />
-      </div>
     </>
   );
 }
