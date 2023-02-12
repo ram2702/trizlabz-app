@@ -24,6 +24,8 @@ export default function PowerPop({ props }) {
   const keycloak = new Keycloak(keycloakConfig);
   const [visible, setVisible] = React.useState(props);
   const [key, setKey] = React.useState();
+  const navigate = useNavigate();
+  let powerPar;
 
   function handleChange(event) {
     if (event.target.className == "rail" && tags) {
