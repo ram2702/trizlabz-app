@@ -24,31 +24,6 @@ export default function PowerPop({ props }) {
   const keycloak = new Keycloak(keycloakConfig);
   const [visible, setVisible] = React.useState(props);
   const [key, setKey] = React.useState();
-  const navigate = useNavigate();
-  let powerPar = {
-    BMSFault: 0,
-    BatState: 2,
-    CellBalStat: 1,
-    CellBank_1: 28,
-    CellBank_2: 29,
-    CellBank_3: 29,
-    CellBank_4: 29,
-    CellBank_5: 29,
-    CellBank_6: 29,
-    CellBank_7: 29,
-    CellBank_8: 29,
-    MaxCellVoltID: 6,
-    MinCellVoltID: 0,
-    NoofChrCycle: 487,
-    PWR1Stat: 159,
-    PWR2Stat: 159,
-    PckCurrent: 36,
-    PckTemp: 28,
-    PckVolt: 39,
-    SoC: 28,
-    SoF: 28,
-    SoH: 28,
-  };
 
   function handleChange(event) {
     if (event.target.className == "rail" && tags) {
