@@ -20,8 +20,7 @@ import {
   OthersIcon,
 } from "../img/monitoringImg";
 import { useNavigate } from "react-router-dom";
-import Keycloak from "keycloak-js";
-import keycloakConfig from "../auth/keycloak.json";
+
 import CompPop from "../popups/comp.health";
 import MotorPop from "../popups/motor.health";
 import PowerPop from "../popups/power.health";
@@ -31,7 +30,6 @@ const endpointID = "851b64bd-9298-49be-9169-096c7d1e60a4";
 const applicationID = "cc3kq5idblahfr7uq3q0";
 
 export default function Health(props) {
-  const keycloak = new Keycloak(keycloakConfig);
   const token = props.props;
   const [error, setError] = React.useState(null);
   const [key, setKey] = React.useState();
@@ -42,19 +40,18 @@ export default function Health(props) {
   const [motor, setMotor] = React.useState(false);
   const [power, setPower] = React.useState(false);
   function handleClick(event) {
-    if (event.target.id == "Computer") setComp(true);
-    else if (event.target.id == "Motor") setMotor(true);
-    else if (event.target.id == "Power") setPower(true);
+    if (event.target.id === "Computer") setComp(true);
+    else if (event.target.id === "Motor") setMotor(true);
+    else if (event.target.id === "Power") setPower(true);
   }
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      setStatus(Math.random());
-    }, 2000);
-  }, [status]);
+  // React.useEffect(() => {
+  //   setTimeout(() => {
+  //     setStatus(Math.random());
+  //   }, 2000);
+  // }, [status]);
   React.useEffect(() => {
     if (token) fetchData();
-  }, [status]);
+  }, [token]);
 
   const showPop = (name, val) => {
     if (name === "Comp") setComp(val);
