@@ -44,14 +44,14 @@ export default function Health(props) {
     else if (event.target.id === "Motor") setMotor(true);
     else if (event.target.id === "Power") setPower(true);
   }
-  // React.useEffect(() => {
-  //   setTimeout(() => {
-  //     setStatus(Math.random());
-  //   }, 2000);
-  // }, [status]);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setStatus(Math.random());
+    }, 2000);
+  }, [status]);
   React.useEffect(() => {
     if (token) fetchData();
-  }, [token]);
+  }, [status]);
 
   const showPop = (name, val) => {
     if (name === "Comp") setComp(val);
