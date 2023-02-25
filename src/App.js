@@ -6,6 +6,8 @@ import MotorPop from "./popups/motor.health";
 import PowerPop from "./popups/power.health";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
+import System from "./pages/system";
+import Navbar from "./components/navbar";
 
 export default function App() {
   React.useEffect(() => {
@@ -14,11 +16,10 @@ export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route index element={<Monitoring />} />
-        <Route path="/computerPopUp" element={<CompPop props={true} />} />
+        <Route index element={<Navbar />} />
+        <Route path="/monitoring/health" element={<Monitoring props={1} />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/motorPopUp" element={<MotorPop props={true} />} />
-        <Route path="/powerPopUp" element={<PowerPop props={true} />} />
+        <Route path="/teleoperations" element={<System />} />
       </Routes>
     </BrowserRouter>
   );

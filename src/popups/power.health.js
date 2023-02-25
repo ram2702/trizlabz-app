@@ -84,7 +84,7 @@ export default function PowerPop(props) {
 
   function handleClick() {
     props.showPop("Power", false);
-    navigate("/");
+    navigate("/monitoring/health");
   }
   return (
     <>

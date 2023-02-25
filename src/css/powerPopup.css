@@ -1,22 +1,22 @@
 .pop-cont {
-    float: left;
-    position: absolute;
-    width: 100%;
-    height: 1117px;
-    left: 0;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
 .pop-box {
-    width: 724px;
-    height: 811px;
-    left: 502px;
-    top: 180px;
+    height: fit-content;
     background: #1F1E25;
     border-radius: 13.8254px;
     display: flex;
@@ -27,7 +27,8 @@
     display: flex;
     margin-top: 35.12px;
     margin-left: 26.75px;
-    justify-content: flex-start;
+    margin-right: 29.75px;
+    margin-bottom: 25.88px;
 }
 
 .pop-head>img {
@@ -70,8 +71,10 @@
 
 .pop-card {
     width: 670px;
-    margin-top: 25.88px;
+    margin-bottom: 15.94px;
+    max-height: 11vh;
     margin-left: 26.75px;
+    margin-right: 26.75px;
     background: #262630;
     border-radius: 9.21697px;
     display: flex;
@@ -145,6 +148,7 @@
     margin-bottom: 20px;
     height: 35px;
 
+    cursor: pointer;
 }
 
 .tag-items {
@@ -154,7 +158,31 @@
 
 }
 
-.tag-items>p {
+.rail {
+    margin-right: 5%;
+    background: #262630;
+    border-radius: 10px;
+    padding: 1% 2%;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.subsys {
+    margin-right: 5%;
+    background: #262630;
+    border-radius: 10px;
+    padding: 1% 2%;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.bms {
     margin-right: 5%;
     background: #262630;
     border-radius: 10px;
@@ -167,7 +195,8 @@
 }
 
 .railTag {
-    width: 93%;
+    z-index: 99;
+    width: 664px;
     align-self: center;
     height: 153px;
     border-radius: 10px;
@@ -177,6 +206,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-left: 6px;
 
 }
 
@@ -210,9 +240,18 @@
 }
 
 .border {
-
+    margin-top: 30px;
+    height: 60px;
+    margin-right: 5%;
+    background: #262630;
+    border-radius: 10px 10px 0px 0px;
+    padding: 1% 2%;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
     transition: all 0.2s ease;
     scale: 0.95;
-    border: 1px solid #FFBF1A;
 
+    color: white;
 }

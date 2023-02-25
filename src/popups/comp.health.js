@@ -61,7 +61,7 @@ export default function CompPop(props) {
 
   function handleClick() {
     props.showPop("Comp", false);
-    navigate("/");
+    navigate("/monitoring/health");
   }
   return (
     <>

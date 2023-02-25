@@ -1,22 +1,21 @@
 .pop-cont {
-    float: left;
-    position: absolute;
-    width: 100%;
-    height: 1117px;
-    left: 0;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 99;
 }
 
 .pop-box {
-    width: 724px;
-    height: 811px;
-    left: 502px;
-    top: 180px;
     background: #1F1E25;
     border-radius: 13.8254px;
     display: flex;
@@ -27,6 +26,8 @@
     display: flex;
     margin-top: 35.12px;
     margin-left: 26.75px;
+    margin-right: 29.75px;
+    margin-bottom: 55.88px;
 }
 
 .pop-head>img {
@@ -70,7 +71,7 @@
 .pop-card {
     width: 670px;
     height: 115px;
-    margin-top: 55.88px;
+
     margin-left: 26.75px;
     background: #262630;
     border-radius: 9.21697px;

@@ -6,7 +6,8 @@ import Keycloak from "keycloak-js";
 import keycloakConfig from "../auth/keycloak.json";
 import "../css/monitoring.css";
 import "../css/core.css";
-export default function Monitoring() {
+export default function Monitoring(props) {
+  console.log(props);
   const keycloak = new Keycloak(keycloakConfig);
   const [token, setToken] = React.useState();
   const [error, setError] = React.useState(null);
@@ -28,7 +29,7 @@ export default function Monitoring() {
   return (
     <>
       <div className="page-cont">
-        <Navbar />
+        <Navbar props={["Monitoring", "Health"]} />
         <Health props={token} />
       </div>
     </>

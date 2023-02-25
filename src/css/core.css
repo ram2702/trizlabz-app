@@ -11,7 +11,7 @@ body {
 .page-cont {
 
     height: fit-content;
-    max-height: 1115px;
+
     display: flex;
 
 }

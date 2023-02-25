@@ -1,64 +1,184 @@
 import React from "react";
 import "../css/navStyle.css";
 import logo from "../img/Trizlabz_logo__1_-removebg-preview 1.png";
-import dashlogo from "../img/dashpic.png";
-import monlogo from "../img/monitoring.svg";
-import syslogo from "../img/systemlogo.svg";
-import setlogo from "../img/setuplogo.svg";
-import admlogo from "../img/adminlogo.svg";
-import helplogo from "../img/helplogo.svg";
-export default function Navbar() {
+import { ReactComponent as Dashlogo } from "../img/dashpic.svg";
+import { ReactComponent as Monlogo } from "../img/monitoring.svg";
+import { ReactComponent as Syslogo } from "../img/systemlogo.svg";
+import { ReactComponent as Setlogo } from "../img/setuplogo.svg";
+import { ReactComponent as Admlogo } from "../img/adminlogo.svg";
+import { ReactComponent as Helplogo } from "../img/helplogo.svg";
+import { useNavigate } from "react-router-dom";
+export default function Navbar({ props }) {
+  console.log(props[0]);
+  const navigate = useNavigate();
+  const [navVis, setNavVis] = React.useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+  React.useEffect(() => {
+    if (props[0] === "Monitoring") {
+      setNavVis((prev) => [false, !prev[1], false, false, false, false]);
+    }
+    if (props[0] === "System") {
+      setNavVis((prev) => [false, false, !prev[2], false, false, false]);
+    }
+  }, []);
+  function handleChange(arg, event) {
+    if (arg === "Dash")
+      setNavVis((prev) => [!prev[0], false, false, false, false, false]);
+    else if (arg === "Mon")
+      setNavVis((prev) => [false, !prev[1], false, false, false, false]);
+    else if (arg === "System")
+      setNavVis((prev) => [false, false, !prev[2], false, false, false]);
+    else if (arg === "TeleOp") navigate("/teleoperations");
+    else if (arg === "Health") navigate("/monitoring/health");
+    else if (arg === "Home") navigate("/");
+    console.log(navVis, arg);
+  }
+
   return (
     <nav className="nav-cont">
-      <img src={logo} alt="Trizlabz-logo" className="trizlabz-logo" />
+      <span className="trizlabz-logo">
+        <img
+          src={logo}
+          alt="Trizlabz-logo"
+          onClick={handleChange.bind(this, "Home")}
+        />
+      </span>
       <div className="nav-items">
-        <div className="nav-card">
+        <div
+          className="nav-card"
+          id="Dash"
+          onClick={handleChange.bind(this, "Dash")}
+        >
           <span className="nav-content">
-            <img src={dashlogo} alt="Trizlabz-logo" className="nav-logo" />
-            <p className="nav-txt">Dashboard</p>
+            <Dashlogo
+              fill={navVis[0] ? "#FD841F" : "#FFFFFF7F"}
+              stroke={navVis[0] ? "#FD841F" : "transparent"}
+              className="nav-logo"
+              width={"1.5rem"}
+            />{" "}
+            <p className={navVis[0] ? "nav-txt color-alt" : "nav-txt"}>
+              Dashboard
+            </p>
           </span>
-          <ol className="sub-content">
-            <li>Dashboard 1</li>
-            <li>Dashboard 2</li>
-            <li>Dashboard 3</li>
-            <li>Dashboard 4</li>
-          </ol>
+          {navVis[0] && (
+            <ol className="sub-content">
+              <li>Dashboard 1</li>
+              <li>Dashboard 2</li>
+              <li>Dashboard 3</li>
+              <li>Dashboard 4</li>
+            </ol>
+          )}
+        </div>
+        <div
+          className="nav-card"
+          id="Mon"
+          onClick={handleChange.bind(this, "Mon")}
+        >
+          <span className="nav-content">
+            <Monlogo
+              fill={navVis[1] ? "#FD841F" : "#FFFFFF7F"}
+              stroke={navVis[1] ? "#FD841F" : "transparent"}
+              className="nav-logo"
+              width={"1.5rem"}
+              fontSize={"4rem"}
+            />{" "}
+            <p className={navVis[1] ? "nav-txt color-alt" : "nav-txt"}>
+              Monitoring
+            </p>
+          </span>
+          {navVis[1] && (
+            <ol className="sub-content">
+              <li
+                className={props[1] === "Health" ? "highlight" : ""}
+                onClick={handleChange.bind(this, "Health")}
+              >
+                Health
+              </li>
+              <li>Trends</li>
+              <li>Mission</li>
+              <li>Telementry Log</li>
+              <li>System Log</li>
+            </ol>
+          )}
+        </div>
+        <div
+          className="nav-card"
+          id="System"
+          onClick={handleChange.bind(this, "System")}
+        >
+          <span className="nav-content">
+            <Syslogo
+              fill={navVis[2] ? "#FD841F" : "#FFFFFF7F"}
+              stroke={navVis[2] ? "#FD841F" : "transparent"}
+              className="nav-logo"
+              width={"1.5rem"}
+            />
+            <p className={navVis[2] ? "nav-txt color-alt" : "nav-txt"}>
+              System
+            </p>
+          </span>
+          {navVis[2] && (
+            <ol className="sub-content">
+              <li
+                className={props[1] === "TeleOp" ? "highlight" : ""}
+                onClick={handleChange.bind(this, "TeleOp")}
+              >
+                Tele Operation
+              </li>
+              <li>Over The Air Update</li>
+              <li>Backup</li>
+              <li>Settings</li>
+            </ol>
+          )}
         </div>
         <div className="nav-card">
           <span className="nav-content">
-            <img src={monlogo} alt="Trizlabz-logo" className="nav-logo" />
-            <p className="nav-txt">Monitoring</p>
+            <Setlogo
+              fill={navVis[3] ? "#FD841F" : "#FFFFFF7F"}
+              stroke={navVis[3] ? "#FD841F" : "transparent"}
+              className="nav-logo"
+              width={"1.5rem"}
+            />
+            <p className={navVis[3] ? "nav-txt color-alt" : "nav-txt"}>Setup</p>
           </span>
-          <ol className="sub-content">
-            <li>Health</li>
-            <li>Trends</li>
-            <li>Mission</li>
-            <li>Telementry Log</li>
-            <li>System Log</li>
-          </ol>
+          {navVis[3] && (
+            <ol className="sub-content">
+              <li>Health</li>
+              <li>Trends</li>
+              <li>Mission</li>
+              <li>Telementry Log</li>
+              <li>System Log</li>
+            </ol>
+          )}
         </div>
         <div className="nav-card">
           <span className="nav-content">
-            <img src={syslogo} alt="Trizlabz-logo" className="nav-logo" />
-            <p className="nav-txt">System</p>
+            <Admlogo
+              fill={navVis[4] ? "#FD841F" : "#FFFFFF7F"}
+              stroke={navVis[4] ? "#FD841F" : "transparent"}
+              className="nav-logo"
+              width={"1.5rem"}
+            />
+            <p className={navVis[4] ? "nav-txt color-alt" : "nav-txt"}>
+              Administration
+            </p>
           </span>
         </div>
         <div className="nav-card">
           <span className="nav-content">
-            <img src={setlogo} alt="Trizlabz-logo" className="nav-logo" />
-            <p className="nav-txt">Setup</p>
-          </span>
-        </div>
-        <div className="nav-card">
-          <span className="nav-content">
-            <img src={admlogo} alt="Trizlabz-logo" className="nav-logo" />
-            <p className="nav-txt">Administration</p>
-          </span>
-        </div>
-        <div className="nav-card">
-          <span className="nav-content">
-            <img src={helplogo} alt="Trizlabz-logo" className="nav-logo" />
-            <p className="nav-txt">Help</p>
+            <Helplogo
+              fill={navVis[5] ? "#FD841F" : "#FFFFFF7F"}
+              stroke={navVis[5] ? "#FD841F" : "transparent"}
+              className="nav-logo"
+              width={"1.5rem"}
+            />
+            <p className={navVis[5] ? "nav-txt color-alt" : "nav-txt"}>Help</p>
           </span>
         </div>
       </div>

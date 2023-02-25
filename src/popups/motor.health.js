@@ -62,7 +62,7 @@ export default function MotorPop(props) {
 
   function handleClick() {
     props.showPop("Motor", false);
-    navigate("/");
+    navigate("/monitoring/health");
   }
   return (
     <>

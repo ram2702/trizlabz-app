@@ -95,7 +95,7 @@ export default function Health(props) {
       <div className="content-cont">
         <article className="sub-head">
           <span className="main-txt">
-            <h1>IFLEET</h1>
+            <h1>iFLEET</h1>
             <h3>Welcome to Trizlabz</h3>
           </span>
           <span className="icon-holder">
@@ -278,12 +278,22 @@ export default function Health(props) {
             <span></span>
           </div>
           <div className="label-one">
-            <img src={usbIcon} alt="Label Icon" height={30} width={38} />
+            <img
+              src={usbIcon}
+              alt="Label Icon label-last"
+              height={30}
+              width={38}
+            />
             <h4>Serial Interface</h4>
             <span></span>
           </div>
           <div className="label-one">
-            <img src={OthersIcon} alt="Label Icon" height={35} width={35} />
+            <img
+              src={OthersIcon}
+              alt="Label Icon label-last"
+              height={35}
+              width={35}
+            />
             <h4>Others</h4>
             <span></span>
           </div>
