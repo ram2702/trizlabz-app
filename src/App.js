@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import System from "./pages/system";
 import Navbar from "./components/navbar";
+import Health from "./components/health.monitoring";
 
 export default function App() {
   React.useEffect(() => {
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route index element={<Navbar />} />
+        <Route index element={<Monitoring />} />
         <Route path="/monitoring/health" element={<Monitoring props={1} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/teleoperations" element={<System />} />
