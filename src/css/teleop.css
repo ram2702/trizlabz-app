@@ -49,7 +49,7 @@
     margin-top: 5vh;
     margin-left: 3vw;
     padding-right: 3vw;
-    border-right: solid 0.5px rgba(255, 255, 255, 0.5);
+    /* border-right: solid 0.5px rgba(255, 255, 255, 0.5); */
 }
 
 .map-cont>img {
@@ -127,6 +127,6 @@
 }
 
 .joy {
-
+    margin-top: 72vh;
     width: 100%;
 }
