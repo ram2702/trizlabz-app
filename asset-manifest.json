@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/trizlabz-app/static/css/main.223a3b1a.css",
+    "main.css": "/trizlabz-app/static/css/main.e16147d9.css",
     "main.js": "/trizlabz-app/static/js/main.e05200d6.js",
     "static/media/map.svg": "/trizlabz-app/static/media/map.00e1fe2a96ca0f01b3f3e0b2da86f092.svg",
     "static/media/login-bg.png": "/trizlabz-app/static/media/login-bg.417d41bfe4e5d0b8e8fa.png",
@@ -32,11 +32,11 @@
     "static/media/ppopup2.svg": "/trizlabz-app/static/media/ppopup2.123721c8d4389190a28d37ed4aaa6112.svg",
     "static/media/systemlogo.svg": "/trizlabz-app/static/media/systemlogo.07c0d8c914302d167ee9770f5a350e8f.svg",
     "static/media/dashpic.svg": "/trizlabz-app/static/media/dashpic.43254ece62e67d1c73fa64cf05a3a9b1.svg",
-    "main.223a3b1a.css.map": "/trizlabz-app/static/css/main.223a3b1a.css.map",
+    "main.e16147d9.css.map": "/trizlabz-app/static/css/main.e16147d9.css.map",
     "main.e05200d6.js.map": "/trizlabz-app/static/js/main.e05200d6.js.map"
   },
   "entrypoints": [
-    "static/css/main.223a3b1a.css",
+    "static/css/main.e16147d9.css",
     "static/js/main.e05200d6.js"
   ]
 }
