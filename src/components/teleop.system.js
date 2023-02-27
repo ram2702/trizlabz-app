@@ -158,6 +158,8 @@ export default function TeleOp() {
       </article>
       <article className="livefeed-cont">
         <img className="livefeed-video" src={Placeholder} alt="Livefeed" />
+        <p>Live</p>
+
         <span className="joy">
           <Joystick
             size={250}

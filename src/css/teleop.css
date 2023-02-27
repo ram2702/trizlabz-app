@@ -94,7 +94,7 @@
 
 .livefeed-video {
     width: 45vw;
-    height: 10vh;
+    height: 40vh;
     margin-left: 3vw;
     margin-top: 5vh;
     border-radius: 1rem 1rem 0 0;
@@ -112,6 +112,18 @@
     margin-top: 7vh;
     width: 20vw;
 
+}
+
+.livefeed-cont>p {
+    position: absolute;
+    margin-top: 7vh;
+    margin-left: 4vw;
+    background-color: #FD841F;
+    height: fit-content;
+    padding: 0.4rem;
+    font-family: "Source Sans Pro";
+    color: #16151A;
+    border-radius: 0.4rem;
 }
 
 .joy {
