@@ -5,7 +5,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Map from "../img/map.svg";
 import Placeholder from "../img/livefeed.png";
 import { Joystick } from "react-joystick-component";
-import stick from "../img/stick.svg";
+import stick from "../img/stick.png";
 import base from "../img/base.svg";
 export default function TeleOp() {
   const theme = createTheme({
