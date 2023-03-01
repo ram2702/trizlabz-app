@@ -2,11 +2,11 @@ import React from "react";
 import "../css/teleop.css";
 import { Box, Stack, Slider } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Map from "../img/map.svg";
+import Map from "../img/map1.png";
 import Placeholder from "../img/livefeed.png";
 import { Joystick } from "react-joystick-component";
 import stick from "../img/stick.png";
-import base from "../img/base.svg";
+import base from "../img/base.png";
 export default function TeleOp() {
   const theme = createTheme({
     palette: {
@@ -36,11 +36,11 @@ export default function TeleOp() {
           <option>Select Deployment</option>
           <option>Deployment 1</option>
         </select>
-        <select className="tele-drop tele-drop-two">
-          <option>Select Vehicle</option>
-        </select>
         <select className="tele-drop tele-drop-three">
           <option>Select Fleet</option>
+        </select>
+        <select className="tele-drop tele-drop-two">
+          <option>Select Vehicle</option>
         </select>
       </article>
 
@@ -161,12 +161,7 @@ export default function TeleOp() {
         <p>Live</p>
 
         <span className="joy">
-          <Joystick
-            size={250}
-            baseImage={base}
-            stickImage={stick}
-            throttle={50}
-          />
+          <Joystick size={200} baseImage={base} stickImage={stick} />
         </span>
       </article>
     </div>

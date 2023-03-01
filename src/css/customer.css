@@ -1,0 +1,10 @@
+.cus-cont {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: #16151A;
+
+    border: 2px solid #1F1F23;
+}

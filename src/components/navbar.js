@@ -34,8 +34,11 @@ export default function Navbar({ props }) {
       setNavVis((prev) => [false, !prev[1], false, false, false, false]);
     else if (arg === "System")
       setNavVis((prev) => [false, false, !prev[2], false, false, false]);
+    else if (arg === "Administration")
+      setNavVis((prev) => [false, false, false, false, !prev[4], false]);
     else if (arg === "TeleOp") navigate("/teleoperations");
     else if (arg === "Health") navigate("/monitoring/health");
+    else if (arg === "customer") navigate("/administration/customer");
     else if (arg === "Home") navigate("/");
     console.log(navVis, arg);
   }
@@ -157,7 +160,11 @@ export default function Navbar({ props }) {
             </ol>
           )}
         </div>
-        <div className="nav-card">
+        <div
+          className="nav-card"
+          id="Administration"
+          onClick={handleChange.bind(this, "Administration")}
+        >
           <span className="nav-content">
             <Admlogo
               fill={navVis[4] ? "#FD841F" : "#FFFFFF7F"}
@@ -169,6 +176,22 @@ export default function Navbar({ props }) {
               Administration
             </p>
           </span>
+          {navVis[4] && (
+            <ol className="sub-content adm">
+              <li
+                className={props[1] === "customer" ? "highlight" : ""}
+                onClick={handleChange.bind(this, "customer")}
+              >
+                Customer Management
+              </li>
+              <li>User Management</li>
+              <li>Variant Management</li>
+              <li>Vehicle Management</li>
+              <li>Software Management</li>
+              <li>Backups</li>
+              <li>Settings</li>
+            </ol>
+          )}
         </div>
         <div className="nav-card">
           <span className="nav-content">

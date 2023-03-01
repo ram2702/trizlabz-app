@@ -120,11 +120,11 @@ export default function Health(props) {
             <option>Select Deployment</option>
             <option>Deployment 1</option>
           </select>
-          <select className="drop drop-two">
-            <option>Select Vehicle</option>
-          </select>
           <select className="drop drop-three">
             <option>Select Fleet</option>
+          </select>
+          <select className="drop drop-two">
+            <option>Select Vehicle</option>
           </select>
         </article>
         <article className="cards">

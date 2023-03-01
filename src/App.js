@@ -9,6 +9,7 @@ import Login from "./pages/login";
 import System from "./pages/system";
 import Navbar from "./components/navbar";
 import Health from "./components/health.monitoring";
+import Administration from "./pages/administration";
 
 export default function App() {
   React.useEffect(() => {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/monitoring/health" element={<Monitoring props={1} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/teleoperations" element={<System />} />
+        <Route path="/administration/customer" element={<Administration />} />
       </Routes>
     </BrowserRouter>
   );
