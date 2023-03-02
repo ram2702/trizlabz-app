@@ -16,8 +16,10 @@ import boltIcon from "../img/boltIcon.png";
 import wheelIcon from "../img/wheelIcon.png";
 import usbIcon from "../img/usbIcon.png";
 import OthersIcon from "../img/OthersIcon.png";
+import searchIcon from "../img/searchicon.png";
 
 export {
+  searchIcon,
   notificon,
   profileicon,
   vehicleIcon,
