@@ -1,3 +1,7 @@
+* {
+    color: #b3b3b3;
+}
+
 .cus-subcont {
 
     display: flex;
@@ -169,14 +173,14 @@
     margin-bottom: 5vh;
 }
 
-.cus-box-row-one {
+.cus-box-no-cus {
     display: flex;
     justify-content: space-between;
     margin: 2vh 2.5% 2vh 2.5%;
 
 }
 
-.cus-box-row-one>h2 {
+.cus-box-no-cus>h2 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
@@ -259,7 +263,7 @@
 
 .Empty-box {
     width: 100%;
-    margin-top: 25vh;
+    margin-top: 22vh;
     text-align: center;
     align-self: center;
     font-family: 'Source Sans Pro';
@@ -267,4 +271,103 @@
     font-weight: 600;
     font-size: 40px;
     color: white;
+}
+
+.add-cus-form {
+
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.image-input {
+    min-width: 90%;
+    background-color: #262630;
+    margin-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+
+}
+
+.image-input>img {
+    margin-bottom: 1vh;
+}
+
+.image-input>span {
+    margin-left: 0.5vw;
+    margin-bottom: 1vh;
+}
+
+.upload-button {
+    background: #16151A;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: #FD841F;
+    margin-right: 1vw;
+    font-family: 'Montserrat';
+    transition: all 0.2s ease;
+}
+
+.delete-button {
+    background: #16151A;
+    border: none;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: white;
+    font-family: 'Montserrat';
+    transition: all 0.2s ease;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+
+}
+
+.text-field {
+    width: 48%;
+}
+
+.disabled-text {
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+
+.MuiOutlinedInput-root {
+    color: #b3b3b3;
+}
+
+.MuiOutlinedInput-disabled {
+    color: #b3b3b3;
+
+
+}
+
+.form-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cancel {
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.submit {
+    background-color: #FD841F;
+    color: #16151A;
 }

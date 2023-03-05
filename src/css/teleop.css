@@ -14,11 +14,19 @@
     font-size: 20px;
     line-height: 25px;
     color: #FFFFFF;
+    appearance: none;
     margin-right: 30px;
 }
 
+
+
 .tele-drop-one {
     margin-left: 2vw;
+
+}
+
+.tele-drop-one::after {
+    display: none;
 }
 
 .tele-drop option {

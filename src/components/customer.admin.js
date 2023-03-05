@@ -5,19 +5,108 @@ import {
   customerIcon,
   computerIcon,
   searchIcon,
+  profilePic,
 } from "../img/monitoringImg";
-import { faFilter, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { alpha, styled } from "@mui/material/styles";
+import {
+  faFilter,
+  faSearch,
+  faUpload,
+  faTrash,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  TextField,
+  InputLabel,
+  OutlinedInput,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#b3b3b3",
+  },
+  "& .MuiFormLabel-root": {
+    color: "#b3b3b3",
+  },
+  "& .MuiFormLabel-disabled": {
+    color: "#b3b3b3",
+    borderColor: "#b3b3b3",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#b3b3b3",
+  },
+
+  "& .MuiOutlinedInput-root": {
+    "& input": {
+      color: "#b3b3b3",
+    },
+
+    "& fieldset": {
+      borderColor: "#b3b3b3",
+      color: "#b3b3b3",
+    },
+    "&:hover fieldset": {
+      borderColor: "#b3b3b3",
+      color: "#b3b3b3",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#b3b3b3",
+      color: "#b3b3b3",
+    },
+  },
+});
 
 export default function Customer() {
-  const [white, setWhite] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [form, setForm] = React.useState({
+    username: "",
+    phone: "",
+    email: "",
+    password: "dd",
+  });
+
+  function handleChange(event) {
+    event.preventDefault();
+
+    setForm((prevForm) => {
+      return {
+        ...prevForm,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const [vis, setVis] = React.useState(false);
+
+  const props = (
+    <InputAdornment position="end">
+      <IconButton
+        aria-label="toggle password visibility"
+        onClick={handleClickShowPassword}
+        onMouseDown={handleMouseDownPassword}
+      >
+        {showPassword ? <Visibility /> : <VisibilityOff />}
+      </IconButton>
+    </InputAdornment>
+  );
   const searchIcon = (
     <FontAwesomeIcon className="search-icon" icon={faSearch} />
   );
   const filterIcon = <FontAwesomeIcon icon={faFilter} />;
-
+  const uploadIcon = <FontAwesomeIcon icon={faUpload} />;
+  const trashIcon = <FontAwesomeIcon icon={faTrash} />;
+  const tick = <FontAwesomeIcon icon={faCheck} className="tick" />;
   function handleClick(event) {
-    console.log(event.target.name);
+    setVis(true);
   }
 
   return (
@@ -59,31 +148,165 @@ export default function Customer() {
         </article>
       </article>
       <div className="cus-box">
-        <article className="cus-box-row-one">
-          <h2>Customers</h2>
-          <div>
-            <span>
-              {searchIcon}
-              <input
-                type={"text"}
-                placeholder={`Search`}
-                className="search-input"
+        {!vis && (
+          <>
+            <article className="cus-box-no-cus">
+              <h2>Customers</h2>
+              <div>
+                <span>
+                  {searchIcon}
+                  <input
+                    type={"text"}
+                    placeholder={`Search`}
+                    className="search-input"
+                  />
+                  <button className="search-filter">{filterIcon} Filter</button>
+                  <button
+                    name="addCustomer"
+                    className="add-cus-button"
+                    onClick={handleClick}
+                  >
+                    {" "}
+                    + Add Customer{" "}
+                  </button>
+                </span>
+              </div>
+            </article>
+            <article>
+              <p className="Empty-box">No Customers Added</p>
+            </article>
+          </>
+        )}
+        {vis && (
+          <form className="add-cus-form">
+            <div className="image-input">
+              <img
+                src={profilePic}
+                alt="Profile Picture"
+                width={103}
+                height={103}
               />
-              <button className="search-filter">{filterIcon} Filter</button>
-              <button
-                name="addCustomer"
-                className="add-cus-button"
-                onClick={handleClick}
-              >
-                {" "}
-                + Add Customer{" "}
-              </button>
+              <span>
+                <button className="upload-button">{uploadIcon} Upload</button>
+                <button className="delete-button">{trashIcon} Delete</button>
+              </span>
+            </div>
+            <span className="flex-row">
+              <CssTextField
+                label="Customer ID"
+                className="text-field disabled-text"
+                value={"CUS1001"}
+                InputProps={{
+                  readOnly: true,
+                }}
+              />
+              <CssTextField
+                label="Customer Name"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
             </span>
-          </div>
-        </article>
-        <article>
-          <p className="Empty-box">No Customers Added</p>
-        </article>
+            <span className="flex-row">
+              <CssTextField
+                label="Address Line 1"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Address Line 2 (optional)"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="City"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="State"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Country"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="PIN / ZIP CODE"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Phone (optional)"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Mobile"
+                type={"number"}
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="SPoC"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Email"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="GST"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Tenet ID"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Cloud Username"
+                name="username"
+                value={form.username}
+                onChange={handleChange}
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                className="text-field"
+                label="Cloud Password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                type={showPassword ? "text" : "password"}
+                key={10}
+                InputProps={{
+                  endAdornment: props,
+                }}
+              />
+            </span>
+            <span className="form-button">
+              <button className="upload-button cancel">Cancel</button>
+              <button className="delete-button submit">&#10003; Submit</button>
+            </span>
+          </form>
+        )}
       </div>
     </div>
   );
