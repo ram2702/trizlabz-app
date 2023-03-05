@@ -68,7 +68,7 @@ export default function Customer() {
     username: "",
     phone: "",
     email: "",
-    password: "dd",
+    password: "",
   });
 
   function handleChange(event) {
@@ -147,6 +147,7 @@ export default function Customer() {
           </div>
         </article>
       </article>
+      {vis && <h2 className="add-cus-head">Add Customer</h2>}
       <div className="cus-box">
         {!vis && (
           <>

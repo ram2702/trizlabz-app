@@ -161,6 +161,22 @@
     color: rgba(255, 255, 255, 0.5);
 }
 
+.add-cus-head {
+    margin-top: 2vh;
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8rem;
+
+    color: #FFFFFF;
+    text-align: start;
+
+    /* Inside auto layout */
+
+}
+
 .cus-box {
     width: 95.5%;
     background: #1F1E25;
