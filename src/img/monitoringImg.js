@@ -18,7 +18,9 @@ import usbIcon from "../img/usbIcon.png";
 import OthersIcon from "../img/OthersIcon.png";
 import searchIcon from "../img/searchicon.png";
 import profilePic from "../img/profilePic.png";
+import cusIcon from "../img/LULU.png";
 export {
+  cusIcon,
   profilePic,
   searchIcon,
   notificon,

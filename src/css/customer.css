@@ -1,7 +1,3 @@
-* {
-    color: #b3b3b3;
-}
-
 .cus-subcont {
 
     display: flex;
@@ -187,6 +183,7 @@
     flex-direction: column;
     min-height: 65vh;
     margin-bottom: 5vh;
+    padding-bottom: 3vh;
 }
 
 .cus-box-no-cus {
@@ -279,7 +276,6 @@
 
 .Empty-box {
     width: 100%;
-    margin-top: 22vh;
     text-align: center;
     align-self: center;
     font-family: 'Source Sans Pro';
@@ -386,4 +382,21 @@
 .submit {
     background-color: #FD841F;
     color: #16151A;
+}
+
+.cus-box-content {
+    margin: auto 0;
+
+}
+
+.MuiTableContainer-root {
+    background-color: #16151A;
+}
+
+.name-cell {
+    display: flex;
+}
+
+.name-cell>span>img {
+    margin-right: 1vw;
 }

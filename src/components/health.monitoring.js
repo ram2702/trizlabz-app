@@ -129,20 +129,6 @@ export default function Health(props) {
         </article>
         <article className="cards">
           <div className="card-items">
-            <h3 className="card-title">Vehicles</h3>
-            <span className="card-label">
-              <img
-                className="label-icon"
-                src={vehicleIcon}
-                alt="Vehicle Icon"
-                height={42.7}
-                width={42.7}
-              />
-              <h4 className="label-text">7</h4>
-            </span>
-            <p className="card-desc">No of Vehicles Deployed</p>
-          </div>
-          <div className="card-items">
             <h3 className="card-title">Deployment</h3>
             <span className="card-label">
               <img

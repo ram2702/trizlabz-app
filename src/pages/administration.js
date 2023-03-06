@@ -6,7 +6,7 @@ export default function Administration() {
   return (
     <div className="page-cont">
       <Navbar props={["Administration", "customer"]} />
-      <Customer />
+      <Customer props={false} />
     </div>
   );
 }

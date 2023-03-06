@@ -25,6 +25,8 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import BasicTable from "./cusTable";
+import { Link } from "react-router-dom";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -61,15 +63,24 @@ const CssTextField = styled(TextField)({
   },
 });
 
-export default function Customer() {
+export default function Customer({ props }) {
+  console.log(props);
   const [showPassword, setShowPassword] = React.useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [form, setForm] = React.useState({
     username: "",
     phone: "",
     email: "",
     password: "",
   });
+
+  const searchIcon = (
+    <FontAwesomeIcon className="search-icon" icon={faSearch} />
+  );
+  const filterIcon = <FontAwesomeIcon icon={faFilter} />;
+  const uploadIcon = <FontAwesomeIcon icon={faUpload} />;
+  const trashIcon = <FontAwesomeIcon icon={faTrash} />;
+  const tick = <FontAwesomeIcon icon={faCheck} className="tick" />;
+  const [vis, setVis] = React.useState(props);
 
   function handleChange(event) {
     event.preventDefault();
@@ -84,29 +95,10 @@ export default function Customer() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
-  const [vis, setVis] = React.useState(false);
-
-  const props = (
-    <InputAdornment position="end">
-      <IconButton
-        aria-label="toggle password visibility"
-        onClick={handleClickShowPassword}
-        onMouseDown={handleMouseDownPassword}
-      >
-        {showPassword ? <Visibility /> : <VisibilityOff />}
-      </IconButton>
-    </InputAdornment>
-  );
-  const searchIcon = (
-    <FontAwesomeIcon className="search-icon" icon={faSearch} />
-  );
-  const filterIcon = <FontAwesomeIcon icon={faFilter} />;
-  const uploadIcon = <FontAwesomeIcon icon={faUpload} />;
-  const trashIcon = <FontAwesomeIcon icon={faTrash} />;
-  const tick = <FontAwesomeIcon icon={faCheck} className="tick" />;
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
   function handleClick(event) {
-    setVis(true);
+    event.preventDefault();
+    setVis((vis) => !vis);
   }
 
   return (
@@ -173,8 +165,9 @@ export default function Customer() {
                 </span>
               </div>
             </article>
-            <article>
-              <p className="Empty-box">No Customers Added</p>
+            <article className="cus-box-content">
+              {/* <p className="Empty-box">No Customers Added</p> */}
+              <BasicTable />
             </article>
           </>
         )}
@@ -298,13 +291,27 @@ export default function Customer() {
                 type={showPassword ? "text" : "password"}
                 key={10}
                 InputProps={{
-                  endAdornment: props,
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
                 }}
               />
             </span>
             <span className="form-button">
-              <button className="upload-button cancel">Cancel</button>
-              <button className="delete-button submit">&#10003; Submit</button>
+              <button className="upload-button cancel" onClick={handleClick}>
+                Cancel
+              </button>
+              <button className="delete-button submit" onClick={handleClick}>
+                &#10003; Submit
+              </button>
             </span>
           </form>
         )}
