@@ -22,7 +22,13 @@ import {
   OutlinedInput,
   InputAdornment,
   IconButton,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
 } from "@mui/material";
+
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import BasicTable from "./cusTable";
@@ -81,6 +87,7 @@ export default function Customer({ props }) {
   const trashIcon = <FontAwesomeIcon icon={faTrash} />;
   const tick = <FontAwesomeIcon icon={faCheck} className="tick" />;
   const [vis, setVis] = React.useState(props);
+  const [modVis, setmodVis] = React.useState(false);
 
   function handleChange(event) {
     event.preventDefault();
@@ -96,10 +103,18 @@ export default function Customer({ props }) {
     event.preventDefault();
   };
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  function handleClick(event) {
+  function handleClick(event, arg) {
     event.preventDefault();
-    setVis((vis) => !vis);
+    // console.log(arg);
+
+    if (arg === "addVis") setVis((vis) => !vis);
+    else if (arg === "modVis") setmodVis((vis) => !vis);
+    else setVis((vis) => !vis);
   }
+
+  const callbackfun = (val) => {
+    setmodVis(val);
+  };
 
   return (
     <div className="cus-subcont">
@@ -140,8 +155,9 @@ export default function Customer({ props }) {
         </article>
       </article>
       {vis && <h2 className="add-cus-head">Add Customer</h2>}
+      {modVis && <h2 className="add-cus-head">Modify Customer</h2>}
       <div className="cus-box">
-        {!vis && (
+        {!vis && !modVis && (
           <>
             <article className="cus-box-no-cus">
               <h2>Customers</h2>
@@ -167,7 +183,7 @@ export default function Customer({ props }) {
             </article>
             <article className="cus-box-content">
               {/* <p className="Empty-box">No Customers Added</p> */}
-              <BasicTable />
+              <BasicTable showModify={callbackfun} />
             </article>
           </>
         )}
@@ -306,12 +322,163 @@ export default function Customer({ props }) {
               />
             </span>
             <span className="form-button">
-              <button className="upload-button cancel" onClick={handleClick}>
+              <button
+                className="upload-button cancel"
+                onClick={handleClick.bind(this, "addVis")}
+              >
                 Cancel
               </button>
-              <button className="delete-button submit" onClick={handleClick}>
+              <button
+                className="delete-button submit"
+                onClick={handleClick.bind(this, "addVis")}
+              >
                 &#10003; Submit
               </button>
+            </span>
+          </form>
+        )}
+        {modVis && (
+          <form className="add-cus-form">
+            <div className="image-input">
+              <img
+                src={profilePic}
+                alt="Profile Picture"
+                width={103}
+                height={103}
+              />
+              <span>
+                <button className="upload-button">{uploadIcon} Upload</button>
+                <button className="delete-button">{trashIcon} Delete</button>
+              </span>
+            </div>
+            <span className="flex-row">
+              <CssTextField
+                label="Customer ID"
+                className="text-field disabled-text"
+                value={"CUS1001"}
+                InputProps={{
+                  readOnly: true,
+                }}
+              />
+              <CssTextField
+                label="Customer Name"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Address Line 1"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Address Line 2 (optional)"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="City"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="State"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Country"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="PIN / ZIP CODE"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Phone (optional)"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Mobile"
+                type={"number"}
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="SPoC"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Email"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="GST"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                label="Tenet ID"
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+            </span>
+            <span className="flex-row">
+              <CssTextField
+                label="Cloud Username"
+                name="username"
+                value={form.username}
+                onChange={handleChange}
+                className="text-field"
+                id="custom-css-outlined-input"
+              />
+              <CssTextField
+                className="text-field"
+                label="Cloud Password"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                type={showPassword ? "text" : "password"}
+                key={10}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </span>
+            <span className="form-button">
+              <button
+                className="upload-button cancel"
+                onClick={handleClick.bind(this, "modVis")}
+              >
+                Cancel
+              </button>
+              <button className="delete-button submit">&#10003; Submit</button>
             </span>
           </form>
         )}

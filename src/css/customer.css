@@ -400,3 +400,7 @@
 .name-cell>span>img {
     margin-right: 1vw;
 }
+
+.delete-box {
+    border: 0;
+}
