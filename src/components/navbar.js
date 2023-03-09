@@ -26,19 +26,22 @@ export default function Navbar({ props }) {
     if (props[0] === "System") {
       setNavVis((prev) => [false, false, !prev[2], false, false, false]);
     }
+    if (props[0] === "Administration") {
+      setNavVis([false, false, false, false, true, false]);
+    }
   }, []);
   function handleChange(arg, event) {
-    if (arg === "Dash")
-      setNavVis((prev) => [!prev[0], false, false, false, false, false]);
+    if (arg === "Dash") setNavVis([true, false, false, false, false, false]);
     else if (arg === "Mon")
-      setNavVis((prev) => [false, !prev[1], false, false, false, false]);
+      setNavVis([false, true, false, false, false, false]);
     else if (arg === "System")
-      setNavVis((prev) => [false, false, !prev[2], false, false, false]);
+      setNavVis([false, false, true, false, false, false]);
     else if (arg === "Administration")
-      setNavVis((prev) => [false, false, false, false, !prev[4], false]);
+      setNavVis([false, false, false, false, true, false]);
     else if (arg === "TeleOp") navigate("/teleoperations");
     else if (arg === "Health") navigate("/monitoring/health");
     else if (arg === "customer") navigate("/administration/customer");
+    else if (arg === "vehicle") navigate("/administration/vehicle");
     else if (arg === "Home") navigate("/");
     console.log(navVis, arg);
   }
@@ -186,7 +189,12 @@ export default function Navbar({ props }) {
               </li>
               <li>User Management</li>
               <li>Variant Management</li>
-              <li>Vehicle Management</li>
+              <li
+                className={props[1] === "vehicle" ? "highlight" : ""}
+                onClick={handleChange.bind(this, "vehicle")}
+              >
+                Vehicle Management
+              </li>
               <li>Software Management</li>
               <li>Backups</li>
               <li>Settings</li>

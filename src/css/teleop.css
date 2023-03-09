@@ -1,33 +1,17 @@
-.tele-drop {
+.tele-subcont {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
 
+}
+
+.tele-drop-cont {
     margin-top: 15vh;
-    background-color: transparent;
-    width: 210px;
-    height: 35px;
-    border-radius: 10px;
-    border: 1px solid;
-    padding-left: 6px;
-    padding-right: 6px;
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
-    color: #FFFFFF;
-    appearance: none;
-    margin-right: 30px;
-}
-
-
-
-.tele-drop-one {
     margin-left: 2vw;
-
 }
 
-.tele-drop-one::after {
-    display: none;
-}
+
+
 
 .tele-drop option {
     color: black;
@@ -37,16 +21,7 @@
     width: 160px;
 }
 
-.tele-drop-three {
-    width: 145px;
-}
 
-.tele-subcont {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-
-}
 
 .tele-map {
     display: flex;

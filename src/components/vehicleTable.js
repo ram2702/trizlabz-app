@@ -56,14 +56,15 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData("Frozen yoghurt", 5, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 4, 9.0, 37, 4.3),
-  createData("Eclair", 3, 16.0, 24, 6.0),
-  createData("Cupcake", 5, 3.7, 67, 4.3),
-  createData("Gingerbread", 6, 16.0, 49, 3.9),
+  createData("Frozen yoghurt", "ABC", "Conveyor", "Celer", 4.0),
+  createData("Ice cream sandwich", "DEF", "Robotic Arm", "Celer", 4.3),
+  createData("Eclair", "GHI", "Food Delivery", "Celer", 6.0),
+  createData("Cupcake", "JKL", "Shelf Mover +1", "Ira", 4.3),
+  createData("Gingerbread", "MNO", "Pallette Box", "Celer", 3.9),
 ];
 
-export default function CustomizedTables(props) {
+export default function VehicleTable(props) {
+  let i = 1;
   const trash = <FontAwesomeIcon icon={faTrash} />;
   const edit = <FontAwesomeIcon icon={faEdit} style={{ color: "#16151A" }} />;
   const warning = <FontAwesomeIcon icon={faWarning} style={{ color: "red" }} />;
@@ -84,10 +85,10 @@ export default function CustomizedTables(props) {
       <Table sx={{ minWidth: 700, border: 0 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="center">Vehicles</StyledTableCell>
-            <StyledTableCell align="center">Fleets</StyledTableCell>
-            <StyledTableCell align="center">Deployment Areas</StyledTableCell>
+            <StyledTableCell>Vehicle ID</StyledTableCell>
+            <StyledTableCell align="center">Customer Name</StyledTableCell>
+            <StyledTableCell align="center">Attachment Type</StyledTableCell>
+            <StyledTableCell align="center">Variant</StyledTableCell>
             <StyledTableCell align="center"></StyledTableCell>
           </TableRow>
         </TableHead>
@@ -100,9 +101,8 @@ export default function CustomizedTables(props) {
                     {" "}
                     <img src={cusIcon} width={50} height={50} />
                   </span>
-                  <span>
-                    <h3>ABC</h3>
-                    <h4>www.ABC.com</h4>
+                  <span style={{ margin: "auto 0" }}>
+                    <h3>AMR100{i++}</h3>
                   </span>
                 </div>
               </StyledTableCell>

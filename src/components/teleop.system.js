@@ -1,13 +1,52 @@
 import React from "react";
 import "../css/teleop.css";
-import { Box, Stack, Slider } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Slider,
+  MenuItem,
+  Select,
+  FormControl,
+} from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Map from "../img/map1.png";
 import Placeholder from "../img/livefeed.png";
 import { Joystick } from "react-joystick-component";
 import stick from "../img/stick.png";
 import base from "../img/base.png";
+
+const defaultProps = {
+  center: {
+    lat: 10.99835602,
+    lng: 77.01502627,
+  },
+  zoom: 11,
+};
+
+const selectStyles = {
+  height: "35px",
+  color: "white",
+  marginRight: "2vw",
+  ".MuiOutlinedInput-notchedOutline": {
+    borderRadius: "0.5rem",
+    borderColor: "rgba(228, 219, 233, 1)",
+  },
+  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderRadius: "0.5rem",
+    borderColor: "rgba(228, 219, 233, 1)",
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+    borderRadius: "0.5rem",
+    borderColor: "rgba(228, 219, 233, 1)",
+  },
+  ".MuiSvgIcon-root ": {
+    fill: "white !important",
+  },
+};
+
 export default function TeleOp() {
+  const [personName, setPersonName] = React.useState([]);
+
   const theme = createTheme({
     palette: {
       neutral: {
@@ -17,14 +56,8 @@ export default function TeleOp() {
     },
   });
 
-  const defaultProps = {
-    center: {
-      lat: 10.99835602,
-      lng: 77.01502627,
-    },
-    zoom: 11,
-  };
   const [value, setValue] = React.useState(30);
+  const [age, setAge] = React.useState("");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -32,16 +65,57 @@ export default function TeleOp() {
   return (
     <div className="tele-subcont">
       <article className="tele-drop-cont">
-        <select className="tele-drop tele-drop-one">
-          <option>Select Deployment</option>
-          <option>Deployment 1</option>
-        </select>
-        <select className="tele-drop tele-drop-three">
-          <option>Select Fleet</option>
-        </select>
-        <select className="tele-drop tele-drop-two">
-          <option>Select Vehicle</option>
-        </select>
+        <FormControl
+          className="tele-drop tele-drop-one"
+          sx={{ padding: "none", minWidth: 230, maxHeight: 10 }}
+        >
+          <Select
+            value={age}
+            onChange={handleChange}
+            displayEmpty
+            inputProps={{ "aria-label": "Without label" }}
+            sx={selectStyles}
+          >
+            <MenuItem value="">Select Deployment</MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl
+          className="tele-drop tele-drop-one"
+          sx={{ padding: "none", minWidth: 190, maxHeight: 10 }}
+        >
+          <Select
+            value={age}
+            onChange={handleChange}
+            displayEmpty
+            inputProps={{ "aria-label": "Without label" }}
+            sx={selectStyles}
+          >
+            <MenuItem value="">Select Fleet</MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl
+          className="tele-drop tele-drop-one"
+          sx={{ minWidth: 190, maxHeight: 10 }}
+        >
+          <Select
+            value={age}
+            onChange={handleChange}
+            displayEmpty
+            inputProps={{ "aria-label": "Without label" }}
+            sx={selectStyles}
+          >
+            <MenuItem value="">Select Vehicle</MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
       </article>
 
       <article className="tele-map">
@@ -87,7 +161,7 @@ export default function TeleOp() {
                   style={{
                     color: "#fd841f",
                     fontSize: "29px",
-                    marginTop: "-0.25vh",
+                    marginTop: "-1vh",
                     fontWeight: "600",
                   }}
                 >
@@ -135,7 +209,7 @@ export default function TeleOp() {
                   style={{
                     color: "#fd841f",
                     fontSize: "29px",
-                    marginTop: "-0.25vh",
+                    marginTop: "-1vh",
                     fontWeight: "600",
                   }}
                 >

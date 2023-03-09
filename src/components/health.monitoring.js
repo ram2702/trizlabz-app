@@ -19,6 +19,7 @@ import {
   usbIcon,
   OthersIcon,
 } from "../img/monitoringImg";
+import { MenuItem, Select, FormControl } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import CompPop from "../popups/comp.health";
@@ -28,17 +29,40 @@ import PowerPop from "../popups/power.health";
 const baseKaaPlatformUrl = "https://cloud.kaaiot.com";
 const endpointID = "851b64bd-9298-49be-9169-096c7d1e60a4";
 const applicationID = "cc3kq5idblahfr7uq3q0";
+const selectStyles = {
+  height: "35px",
+  color: "white",
+  marginRight: "2vw",
+  ".MuiOutlinedInput-notchedOutline": {
+    borderRadius: "0.5rem",
+    borderColor: "rgba(228, 219, 233, 1)",
+  },
+  "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderRadius: "0.5rem",
+    borderColor: "rgba(228, 219, 233, 1)",
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+    borderRadius: "0.5rem",
+    borderColor: "rgba(228, 219, 233, 1)",
+  },
+  ".MuiSvgIcon-root ": {
+    fill: "white !important",
+  },
+};
 
 export default function Health(props) {
   const token = props.props;
   const [error, setError] = React.useState(null);
   const [key, setKey] = React.useState();
+  const [age, setAge] = React.useState("");
   const [status, setStatus] = React.useState(1);
   const [posts, setPosts] = React.useState();
   const navigate = useNavigate();
   const [comp, setComp] = React.useState(false);
   const [motor, setMotor] = React.useState(false);
   const [power, setPower] = React.useState(false);
+  const [value, setValue] = React.useState(30);
+
   function handleClick(event) {
     if (event.target.id === "Computer") setComp(true);
     else if (event.target.id === "Motor") setMotor(true);
@@ -57,6 +81,10 @@ export default function Health(props) {
     if (name === "Comp") setComp(val);
     if (name === "Motor") setMotor(val);
     if (name === "Power") setPower(val);
+  };
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   const fetchData = async () => {
@@ -116,16 +144,57 @@ export default function Health(props) {
           </span>
         </article>
         <article className="drop-cont">
-          <select className="drop drop-one">
-            <option>Select Deployment</option>
-            <option>Deployment 1</option>
-          </select>
-          <select className="drop drop-three">
-            <option>Select Fleet</option>
-          </select>
-          <select className="drop drop-two">
-            <option>Select Vehicle</option>
-          </select>
+          <FormControl
+            className="tele-drop tele-drop-one"
+            sx={{ padding: "none", minWidth: 230, maxHeight: 10 }}
+          >
+            <Select
+              value={age}
+              onChange={handleChange}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+              sx={selectStyles}
+            >
+              <MenuItem value="">Select Deployment</MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl
+            className="tele-drop tele-drop-one"
+            sx={{ padding: "none", minWidth: 190, maxHeight: 10 }}
+          >
+            <Select
+              value={age}
+              onChange={handleChange}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+              sx={selectStyles}
+            >
+              <MenuItem value="">Select Fleet</MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl
+            className="tele-drop tele-drop-one"
+            sx={{ minWidth: 190, maxHeight: 10 }}
+          >
+            <Select
+              value={age}
+              onChange={handleChange}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+              sx={selectStyles}
+            >
+              <MenuItem value="">Select Vehicle</MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
         </article>
         <article className="cards">
           <div className="card-items">
