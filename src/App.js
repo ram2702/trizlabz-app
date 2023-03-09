@@ -4,7 +4,7 @@ import CompPop from "./popups/comp.health";
 import Monitoring from "./pages/monitoring";
 import MotorPop from "./popups/motor.health";
 import PowerPop from "./popups/power.health";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import System from "./pages/system";
 import Navbar from "./components/navbar";
@@ -17,7 +17,7 @@ export default function App() {
     console.log(document.all);
   }, []);
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/trizlabz-app">
       <Routes>
         <Route index element={<Monitoring />} />
         <Route path="/monitoring/health" element={<Monitoring props={1} />} />
@@ -32,6 +32,6 @@ export default function App() {
           element={<Administration props={"Vehicle"} />}
         />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
