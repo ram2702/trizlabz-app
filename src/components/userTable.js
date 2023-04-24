@@ -55,9 +55,10 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [createData("Frozen yoghurt", 0, 0, 0)];
+const rows = [createData("USR1001", "Vivek", "Admin", 9876543210)];
 
-export default function CustomizedTables(props) {
+export default function UserTable(props) {
+  let i = 1;
   const trash = <FontAwesomeIcon icon={faTrash} />;
   const edit = <FontAwesomeIcon icon={faEdit} style={{ color: "#16151A" }} />;
   const warning = <FontAwesomeIcon icon={faWarning} style={{ color: "red" }} />;
@@ -78,10 +79,10 @@ export default function CustomizedTables(props) {
       <Table sx={{ minWidth: 700, border: 0 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="center">Vehicles</StyledTableCell>
-            <StyledTableCell align="center">Fleets</StyledTableCell>
-            <StyledTableCell align="center">Deployment Areas</StyledTableCell>
+            <StyledTableCell>User ID</StyledTableCell>
+            <StyledTableCell align="center">User Name</StyledTableCell>
+            <StyledTableCell align="center">Role</StyledTableCell>
+            <StyledTableCell align="center">Mobile</StyledTableCell>
             <StyledTableCell align="center"></StyledTableCell>
           </TableRow>
         </TableHead>
@@ -94,9 +95,8 @@ export default function CustomizedTables(props) {
                     {" "}
                     <img src={cusIcon} width={50} height={50} />
                   </span>
-                  <span>
-                    <h3>Jane Doe</h3>
-                    <h4>www.ABC.com</h4>
+                  <span style={{ margin: "auto 0" }}>
+                    <h3>USR100{i++}</h3>
                   </span>
                 </div>
               </StyledTableCell>

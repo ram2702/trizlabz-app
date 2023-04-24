@@ -41,6 +41,7 @@ export default function Navbar({ props }) {
     else if (arg === "TeleOp") navigate("/teleoperations");
     else if (arg === "Health") navigate("/monitoring/health");
     else if (arg === "customer") navigate("/administration/customer");
+    else if (arg === "user") navigate("/administration/user");
     else if (arg === "vehicle") navigate("/administration/vehicle");
     else if (arg === "Home") navigate("/");
     console.log(navVis, arg);
@@ -187,7 +188,12 @@ export default function Navbar({ props }) {
               >
                 Customer Management
               </li>
-              <li>User Management</li>
+              <li
+                className={props[1] === "user" ? "highlight" : ""}
+                onClick={handleChange.bind(this, "user")}
+              >
+                User Management
+              </li>
               <li>Variant Management</li>
               <li
                 className={props[1] === "vehicle" ? "highlight" : ""}

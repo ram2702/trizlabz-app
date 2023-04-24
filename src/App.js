@@ -28,6 +28,10 @@ export default function App() {
           element={<Administration props={"Customer"} />}
         />
         <Route
+          path="/administration/user"
+          element={<Administration props={"user"} />}
+        />
+        <Route
           path="/administration/vehicle"
           element={<Administration props={"Vehicle"} />}
         />
